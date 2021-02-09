@@ -34,12 +34,13 @@ object cliParser {
           .action((_, c) => c.copy(debug = true))
           .text("this option is hidden in the usage text"),
         help("help").text("prints this usage text"),
-        note("some notes." + sys.props("line.separator")),
+        note("Prints out exchange rates for different currencies." + sys.props("line.separator")),
         cmd("list")
-          .action((_, c) => c.copy(mode = ListSubCommand)),
+          .action((_, c) => c.copy(mode = ListSubCommand))
+          .text("Prints all available currencies."),
         cmd("get")
           .action((_, c) => c.copy(mode = GetSubCommand))
-          .text("update is a command.")
+          .text("Prints currency value in bitcoin.")
           .children(
             arg[String]("target")
               .required()
@@ -47,7 +48,8 @@ object cliParser {
               .text("target currency"),
             arg[String]("base")
               .action((value, c) => c.copy(baseCurrency = value))
-              .optional()
+
+            .optional()
               .text("base currency"),
             checkConfig(c =>
               if (false && c.targetCurrency == c.baseCurrency) failure("target currency cannot be same with base currency")

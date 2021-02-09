@@ -5,6 +5,7 @@ import exchangerates.exchange
 
 
 object Main extends App {
+
   def list(config: parser.Config) = {
     val currencies = exchange.client.getCurrencyList()
     println("=" * 80)
@@ -38,12 +39,12 @@ object Main extends App {
       case ListSubCommand => list(config)
       case GetSubCommand => get(config)
     }
-    println(config)
   }
 
+  // start interface
   parser.cliParser.getCliArguments(args) match {
     case Some(config: parser.Config) => run(config)
-    case None => println("Invalid Config")
+    case None =>
   }
   sys.exit(0)
 }

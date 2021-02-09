@@ -15,7 +15,7 @@ scalaVersion := "2.13.3"
 name := "exchangerates"
 organization := "ch.epfl.scala"
 version := "1.0"
-
+maintainer := "yilmazhuseyin@gmail.com"
 // Note, it's not required for you to define these three settings. These are
 // mostly only necessary if you intend to publish your library's binaries on a
 // place like Sonatype or Bintray.
@@ -78,3 +78,6 @@ libraryDependencies ++= Seq(
 
 // To learn more about multi-project builds, head over to the official sbt
 // documentation at http://www.scala-sbt.org/documentation.html
+
+enablePlugins(JavaAppPackaging)
+enablePlugins(JavaServerAppPackaging)
