@@ -1,0 +1,5 @@
+exchangerates/project/target
+exchangerates/target
+*~
+.dir-locals.el
+.metals
